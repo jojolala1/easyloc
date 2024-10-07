@@ -1,18 +1,18 @@
-const Commands = require("../../Listing");
+const Listing = require("../../Listing");
 const CustomerModel = require("./customerModel");
 const { program } = require("commander");
 const connectMongo = require("../dbConfigMongo");
 const mongoose = require("mongoose");
 const readline = require("readline");
 
-const listingCustomer = new Commands(
+const listingCustomer = new Listing(
     "listingCustomers",
     "affiche tout les clients",
     CustomerModel,
     "liste des clients"
 );
 
-createCustomer = () => {
+const createCustomer = () => {
     const promptUser = () => {
         const cmd = readline.createInterface(process.stdin, process.stdout);
 
@@ -63,7 +63,7 @@ createCustomer = () => {
         });
 };
 
-dropCustomer = () => {
+const dropCustomer = () => {
     const promptSearchNames = () => {
         const cmd = readline.createInterface(process.stdin, process.stdout);
 
@@ -93,13 +93,13 @@ dropCustomer = () => {
     };
     program
         .command("dropCustomer")
-        .description("pour creer un nouveau client")
+        .description("pour supprimer un client")
         .action(() => {
             promptSearchNames();
         });
 };
 
-updateCustomer = () => {
+const updateCustomer = () => {
     const promptUpdateByNames = () => {
         const cmd = readline.createInterface(process.stdin, process.stdout);
 
@@ -184,7 +184,7 @@ updateCustomer = () => {
         });
 };
 
-searchByNamesCustomer = () => {
+const searchByNamesCustomer = () => {
     const promptSearchByNames = () => {
         const cmd = readline.createInterface(process.stdin, process.stdout);
 

@@ -21,7 +21,7 @@ class Commands {
         try {
             await connectMongo(process.env.MONGO_URI);
             const customers = await this.model.find();
-            console.log(this.sujet ,customers)
+            console.log(this.sujet,':' ,customers)
         }catch(error){
             console.error(`erreur pour ${this.describe}`,error)
         }finally {
